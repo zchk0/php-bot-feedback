@@ -10,3 +10,5 @@
 ```json
 {"ok":true,"result":true,"description":"Webhook was set"}
 ```
+
+Рабочий пример бота https://t.me/ALStriveBot
