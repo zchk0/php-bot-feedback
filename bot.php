@@ -188,18 +188,17 @@ class Bot
         $data['chat_id'] = $chat_id;
 
         if (is_array($data)) {
-            $curl = curl_init();
-			
-            curl_setopt($curl, CURLOPT_URL, $this->apiUrl . $this->botToken . '/' . $type);
-            curl_setopt($curl, CURLOPT_POST, count($data));
-			      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			      curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST'); //Отправляем через POST
-			      curl_setopt($curl, CURLOPT_POST, true);
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-			      curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+		$curl = curl_init();	
+		curl_setopt($curl, CURLOPT_URL, $this->apiUrl . $this->botToken . '/' . $type);
+		curl_setopt($curl, CURLOPT_POST, count($data));
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST'); //Отправляем через POST
+		curl_setopt($curl, CURLOPT_POST, true);
+		//curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             
-			      $result = json_decode(curl_exec($curl), true);
-            curl_close($curl);
+		$result = json_decode(curl_exec($curl), true);
+		curl_close($curl);
         }
         return $result;
     }  
